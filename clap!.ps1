@@ -9,17 +9,17 @@
 
 $t = Get-Clipboard ;
 
-# Because of no \p{Han} in regex
-#$t = $t -replace " ,", ",s"
-$t = $t -replace "=", "__"
-#$t = $t -replace "([a-z]),", "$1@_@"
-#$t = $t -replace ",", "，"
-#$t = $t -replace "@_@", ","
-$t = $t -replace "([a-z]) ", "$1="
-$t = $t -replace " ", ""
-$t = $t -replace "=", "  "
-$t = $t -replace "__", "="
-
-# replace every thing that have 
+$t = $t -replace ' ,', "，"
+$t = $t -replace '(\p{IsCJKUnifiedIdeographs}) ,', '$1，'
+$t = $t -replace '\( (\p{IsCJKUnifiedIdeographs})', '($1'
+$t = $t -replace '(\p{IsCJKUnifiedIdeographs}) ', '$1'
+$t = $t -replace 'Ｉ', 'I'
+$t = $t -replace 'Ｖ', 'V'
+$t = $t -replace 'Ⅵ', 'VI'
+$t = $t -replace '[ ]*/[ ]*', '/'
+$t = $t -replace '([0-9]+)[ ]*圯[ ]*([0-9]*)/', '$1/$2'
+#$t = $t -replace '([0-9]*)[ ]*/[ ]*([ABCDE][0-9]+)/[ ]*([IV ]+)[ ]*/[ ]*GPAL[ ]*/[ ]*([0-9]+)', '$1/$2/GPAL/$3'
+$t = $t -replace 'n,0', 'n.º'
+$t = $t -replace 'Sr•', 'Srª' 
 # done
 Set-Clipboard $t
