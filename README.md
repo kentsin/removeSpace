@@ -5,7 +5,7 @@ https://www.addictivetips.com/windows-tips/run-powershell-scripts-with-keyboard-
 
 The script can be run by right click on the script and "run with PowerShell"
 
-or use keyboard shoutcut:
+or use keyboard shortcut:
 
 right-click on an empty desktop area -> select New>Shortcut
 
